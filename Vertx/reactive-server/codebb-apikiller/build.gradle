@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+
+group = 'pl.malinowski'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.0-beta3'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3.6'
+
+}
