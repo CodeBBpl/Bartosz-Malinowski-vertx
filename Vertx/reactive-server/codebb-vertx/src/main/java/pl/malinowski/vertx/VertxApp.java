@@ -19,6 +19,7 @@ package pl.malinowski.vertx;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
+import io.vertx.core.VertxOptions;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.logging.Logger;
@@ -61,8 +62,9 @@ public class VertxApp extends AbstractVerticle {
     }
 
     public static void main(String[] args) {
-        Vertx.vertx().deployVerticle(
-            "pl.malinowski.vertx.VertxApp",
-            new DeploymentOptions().setWorkerPoolSize(100));
+        Vertx
+            .vertx(new VertxOptions().setWorkerPoolSize(50))
+            .deployVerticle(
+                "pl.malinowski.vertx.VertxApp");
     }
 }

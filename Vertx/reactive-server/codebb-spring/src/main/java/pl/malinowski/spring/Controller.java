@@ -22,12 +22,11 @@ class Controller {
     @GetMapping(value = "complex")
     public String complex() throws InterruptedException {
         LOGGER.info(Thread.currentThread().getName() + " In complex");
-        final String text = doComplexJob();
-        return text;
+        doComplexJob();
+        return "Spring - complex! " + LocalDateTime.now();
     }
 
-    private String doComplexJob() throws InterruptedException {
-        Thread.sleep(5000);
-        return "Spring - complex! " + LocalDateTime.now();
+    private void doComplexJob() throws InterruptedException {
+        Thread.sleep(2000);
     }
 }
