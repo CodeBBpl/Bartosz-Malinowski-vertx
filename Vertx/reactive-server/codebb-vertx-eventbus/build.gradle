@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+
+group = 'pl.malinowski'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.vertx:vertx-core:3.5.3'
+    compile 'io.vertx:vertx-web:3.5.3'
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "pl.malinowski.vertx.VertxApp"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'pl.malinowski.vertx.VertxApp'
+    }
+    baseName = 'vertx'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

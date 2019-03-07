@@ -12,7 +12,7 @@ class Controller {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
-    @GetMapping(value = "simple", produces = "text/plain")
+    @GetMapping(value = "/", produces = "text/plain")
     public String simple() {
         LOGGER.info(Thread.currentThread().getName() + " In simple");
         return "Spring - simple! " + LocalDateTime.now();

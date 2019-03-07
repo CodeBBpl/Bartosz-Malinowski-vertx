@@ -1,3 +1,3 @@
 rootProject.name='codebb-reactive'
-include ':codebb-apikiller',':codebb-spring',':codebb-vertx',':codebb-vertx-js'
+include ':codebb-apikiller',':codebb-spring',':codebb-vertx',':codebb-vertx-js',':codebb-vertx-eventbus',':codebb-vertx-core'
 

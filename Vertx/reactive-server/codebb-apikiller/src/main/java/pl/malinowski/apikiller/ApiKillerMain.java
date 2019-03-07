@@ -15,10 +15,10 @@ public class ApiKillerMain {
 
     public static void main(String[] args) throws Exception {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(200);
+        ExecutorService executorService = Executors.newFixedThreadPool(400);
 
         try {
-            for(int i = 0; i < 200; i++) {
+            for(int i = 0; i < 400; i++) {
                 executorService.submit(ApiKillerMain::callIt);
             }
         } finally {
@@ -43,3 +43,4 @@ public class ApiKillerMain {
         }
     }
 }
+

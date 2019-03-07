@@ -18,3 +18,29 @@ dependencies {
     compile 'io.prometheus:simpleclient_dropwizard:0.0.23'    
 
 }
+
+def mainClassName = "pl.malinowski.vertxjs.MetricsEventBus" 
+jar {
+  manifest {
+    attributes(
+      'Main-Class': "$mainClassName",
+    )
+  }
+}
+
+task fatJar(type: Jar) {
+  manifest.from jar.manifest
+  classifier = 'all'
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  } {
+    exclude "META-INF/*.SF"
+    exclude "META-INF/*.DSA"
+    exclude "META-INF/*.RSA"
+  }
+  with jar
+}
+
+artifacts {
+    archives fatJar
+}
